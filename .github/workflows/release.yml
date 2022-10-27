@@ -50,11 +50,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'pnpm'
-      - name: isntall pnpm
+      - name: install pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 6
+          version: 7
       - name: install Rust stable
         uses: dtolnay/rust-toolchain@stable
         with:
