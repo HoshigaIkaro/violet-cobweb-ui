@@ -66,7 +66,7 @@ jobs:
       - name: install tauri-cli and trunk
         run: |
           pnpm add -D @tauri-apps/cli
-          curl -LO https://github.com/thedodd/trunk/releases/download/v0.16.0/trunk-x86_64-unknown-linux-gnu.tar.gz | tar -xzf-
+          curl -LOJ https://github.com/thedodd/trunk/releases/download/v0.16.0/trunk-x86_64-unknown-linux-gnu.tar.gz | tar -xzf-
           sudo mv trunk /usr/bin/trunk
       - name: build app
         run: pnpm tauri build
