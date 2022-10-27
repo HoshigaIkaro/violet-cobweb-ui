@@ -64,7 +64,7 @@ jobs:
         run: |
           curl -fsSL https://get.pnpm.io/install.sh | sh -
           source /Users/runner/.bashrc
-          pnpm pnpm add -D @tauri-apps/cli
+          pnpm add -D @tauri-apps/cli
           wget -qO- https://github.com/thedodd/trunk/releases/download/v0.16.0/trunk-x86_64-unknown-linux-gnu.tar.gz | tar -xzf-
       - name: build app
         run: cargo tauri build
