@@ -2,8 +2,8 @@ name: build
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - "v*.*.*-test_*"
 
 jobs:
   test-tauri:
@@ -39,9 +39,8 @@ jobs:
       - name: move trunk to bin dir (windows only)
         if: matrix.platform == 'windows-latest'
         run: |
-          # TODO: unzip folder
-          curl -L https://github.com/thedodd/trunk/releases/download/v0.16.0/trunk-x86_64-pc-windows-msvc.zip
-          echo "::add-path::${env:GITHUB_WORKSPACE}"
+          curl -LOJ https://github.com/thedodd/trunk/releases/download/v0.16.0/trunk-x86_64-pc-windows-msvc.zip
+          Extract-Archive trunk-x86_64-pc-windows-msvc.zip .
       - name: move trunk to bin dir (ubuntu only)
         if: matrix.platform == 'ubuntu-20.04'
         run: |
