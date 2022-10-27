@@ -52,7 +52,7 @@ jobs:
           node-version: 16
           cache: "pnpm"
       - name: install Rust stable
-        uses: actions-rs/toolchain@v1
+        uses: dtolnay/rust-toolchain
         with:
           toolchain: stable
           target: wasm32-unknown-unknown
