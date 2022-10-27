@@ -68,7 +68,7 @@ jobs:
           pnpm add -D @tauri-apps/cli
           wget -qO- https://github.com/thedodd/trunk/releases/download/v0.16.0/trunk-x86_64-unknown-linux-gnu.tar.gz | tar -xzf-
       - name: build app
-        run: cargo tauri build
+        run: pnpm tauri build
       - uses: tauri-apps/tauri-action@v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
