@@ -13,12 +13,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: setup node
-        uses: actions/setup-node@v1
-        with:
-          node-version: 16
+      - name: install cargo-get
+        uses: dtolnay/rust-toolchain@stable
+        run: cargo install cargo-get
       - name: get version
-        run: echo "PACKAGE_VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_ENV
+        run: cargo get version --pretty
       - name: create release
         id: create-release
         uses: actions/github-script@v6
