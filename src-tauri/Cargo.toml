@@ -11,6 +11,8 @@ rust-version = "1.57"
 [profile.release]
 lto = true
 codegen-units = 1
+strip = true
+panic = "abort"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
