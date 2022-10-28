@@ -40,7 +40,7 @@ jobs:
         if: matrix.platform == 'windows-latest'
         run: |
           curl -LOJ https://github.com/thedodd/trunk/releases/download/v0.16.0/trunk-x86_64-pc-windows-msvc.zip
-          Extract-Archive trunk-x86_64-pc-windows-msvc.zip .
+          Expand-Archive trunk-x86_64-pc-windows-msvc.zip .
       - name: move trunk to bin dir (ubuntu only)
         if: matrix.platform == 'ubuntu-20.04'
         run: |
