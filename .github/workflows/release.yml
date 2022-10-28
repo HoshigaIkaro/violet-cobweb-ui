@@ -54,15 +54,15 @@ jobs:
         uses: pnpm/action-setup@v2
         with:
           version: 7
-      - name: install Rust stable
-        uses: dtolnay/rust-toolchain@stable
-        with:
-          target: wasm32-unknown-unknown
       - name: install dependencies (ubuntu only)
         if: matrix.platform == 'ubuntu-20.04'
         run: |
           sudo apt-get update
           sudo apt-get install -y libgtk-3-dev webkit2gtk-4.0 libappindicator3-dev librsvg2-dev patchelf
+      - name: install Rust stable
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          target: wasm32-unknown-unknown
       - name: install tauri-cli
         run: |
           pnpm add -D @tauri-apps/cli
@@ -71,7 +71,7 @@ jobs:
         if: matrix.platform == 'windows-latest'
         run: |
           curl -LOJ https://github.com/thedodd/trunk/releases/download/v0.16.0/trunk-x86_64-pc-windows-msvc.zip
-          Extract-Archive trunk-x86_64-pc-windows-msvc.zip .
+          Expand-Archive trunk-x86_64-pc-windows-msvc.zip .
       - name: move trunk to bin dir (ubuntu only)
         if: matrix.platform == 'ubuntu-20.04'
         run: |
