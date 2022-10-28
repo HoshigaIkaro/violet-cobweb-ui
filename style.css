@@ -48,13 +48,13 @@
 .col {
   display: flex;
   flex-direction: column;
-  row-gap: 5vh;
+  row-gap: 2vh;
 }
 
 .recorder {
   justify-content: space-between;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  margin-top: 4vh;
+  margin-bottom: 2vh;
 }
 
 .player {
@@ -69,12 +69,34 @@
   justify-content: space-between;
 }
 
-.controls {
-  display: flex;
-  flex-direction: col;
+.playback.col {
+  row-gap: 1vh;
 }
 
-.controls > .toggle > button {
+.volume {
+  display: flex;
+  flex-direction: column;
+}
+
+.volume > button {
+  width: 15vw;
+  height: 10vh;
+}
+
+
+.controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.toggle > button {
   width: 15vw;
   height: 10vh;
 }
@@ -82,6 +104,10 @@
 .recorder > .toggle > button, .recorder > .mark > button {
   width: 20vw;
   height: 10vh;
+}
+
+.info > .volume {
+  width: 15vw;
 }
 
 a {

@@ -55,19 +55,43 @@ pub fn player() -> Html {
             <audio ref={node_ref} />
 
             <div class="info">
-                <p>{ " Duration: " } { *audio.duration }</p>
-                <p>{ " Time: " } { *audio.time }</p>
-                <p>{ " Volume: " } { *audio.volume }</p>
+                    <p>{ " Duration: " } { *audio.duration }</p>
+                    <p>{ " Time: " } { *audio.time }</p>
+                    <p class="volume">
+                        if *audio.muted {
+                            { "Muted" }
+                        } else {
+                            { " Volume: " } { *audio.volume * 100.0 } { "%" }
+
+                        }
+                    </p>
             </div>
 
             <div class="controls">
-                <button onclick={onmute} disabled={*audio.muted}>{ "Mute" }</button>
-                <button onclick={onunmute} disabled={!*audio.muted}>{ "Unmute" }</button>
-                <button onclick={onvol}>{ "Volume: 50%" }</button>
-                <button onclick={onseek}>{ "Seek: +5 secs" }</button>
+                <div class="volume">
+                    if *audio.muted {
+                        <button onclick={onunmute} disabled={!*audio.muted}>{ "Unmute" }</button>
+                    } else {
+                        <button onclick={onmute} disabled={*audio.muted}>{ "Mute" }</button>
+                    }
+
+                    <button onclick={onvol}>{ "Volume: 50%" }</button>
+                </div>
+
                 <div class="toggle">
-                    <button onclick={onplay} disabled={*audio.playing}>{ "Play" }</button>
-                    <button onclick={onpause} disabled={*audio.paused}>{ "Pause" }</button>
+                    if *audio.playing {
+                        <button onclick={onpause} disabled={*audio.paused}>{ "Pause" }</button>
+                    } else {
+                        <button onclick={onplay} disabled={*audio.playing}>{ "Play" }</button>
+                    }
+                </div>
+
+                <div class="playback col">
+                    <p>{ "Seek 5s:" }</p>
+                    <div class="seek">
+                        <button>{ "←" }</button>
+                        <button onclick={onseek}>{ "→" }</button>
+                    </div>
                 </div>
             </div>
         </div>
