@@ -18,7 +18,7 @@ jobs:
       - name: install cargo-get
         run: cargo install cargo-get
       - name: get version
-        run: cargo get version --pretty
+        run: echo "PACKAGE_VERSION=$(cargo get version)" >> $GITHUB_ENV
       - name: create release
         id: create-release
         uses: actions/github-script@v6
