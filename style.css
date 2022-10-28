@@ -45,13 +45,41 @@
   justify-content: center;
 }
 
+.col {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5vh;
+}
+
 .recorder {
   justify-content: space-between;
   margin-top: 5vh;
   margin-bottom: 5vh;
 }
 
-.toggle > button, .mark > button {
+.player {
+  justify-content: space-between;
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+
+.player > .info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.controls {
+  display: flex;
+  flex-direction: col;
+}
+
+.controls > .toggle > button {
+  width: 15vw;
+  height: 10vh;
+}
+
+.recorder > .toggle > button, .recorder > .mark > button {
   width: 20vw;
   height: 10vh;
 }

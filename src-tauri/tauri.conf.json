@@ -39,7 +39,7 @@
         "signingIdentity": null
       },
       "resources": [],
-      "shortDescription": "",
+      "shortDescription": "Audio file timestamp marker.",
       "targets": "all",
       "windows": {
         "certificateThumbprint": null,

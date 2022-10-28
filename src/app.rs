@@ -21,6 +21,7 @@ extern "C" {
 pub struct RecordingState {
     pub inner: bool,
     pub available_for_playback: bool,
+    pub file_name: String,
 }
 
 impl Reducible for RecordingState {
@@ -32,6 +33,7 @@ impl Reducible for RecordingState {
         RecordingState {
             inner: action,
             available_for_playback,
+            file_name: self.file_name.clone(),
         }
         .into()
     }
