@@ -13,8 +13,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: install cargo-get
+      - name: install rust toolchain
         uses: dtolnay/rust-toolchain@stable
+      - name: install cargo-get
         run: cargo install cargo-get
       - name: get version
         run: cargo get version --pretty
